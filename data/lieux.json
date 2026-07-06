@@ -42,11 +42,11 @@
     },
     {
       "theme": "place",
-      "nom": "Pointe du Roselier",
-      "detail": "panorama sur la baie (Plérin)",
-      "picto": "🌊",
-      "lat": 48.5481,
-      "lng": -2.7222
+      "nom": "Coin paisible bord de mer",
+      "detail": "Sentier des oiseaux",
+      "picto": "✨",
+      "lat": 48.529038,
+      "lng": -2.716351
     },
     {
       "theme": "place",
