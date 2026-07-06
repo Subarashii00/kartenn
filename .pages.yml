@@ -1,0 +1,45 @@
+media: media
+
+content:
+  - name: lieux
+    label: Lieux de la carte
+    type: file
+    path: data/lieux.json
+    fields:
+      - name: lieux
+        label: Liste des lieux
+        type: object
+        list: true
+        fields:
+          - name: theme
+            label: Thème
+            type: select
+            options:
+              values:
+                - value: food
+                  label: Food
+                - value: place
+                  label: Lieux
+                - value: shopping
+                  label: Shopping
+                - value: activity
+                  label: Activités
+          - name: nom
+            label: Nom du lieu
+            type: string
+            required: true
+          - name: detail
+            label: Description courte
+            type: string
+            description: "Une phrase courte, affichée sous le nom (ex : galettes au blé noir, vieille ville)"
+          - name: picto
+            label: Emoji
+            type: string
+            description: "Un emoji pour la liste (ex : 🥞, ⛪, 🔮, 🎳)"
+          - name: lat
+            label: Latitude
+            type: number
+            description: "Clic droit sur openstreetmap.org > « Afficher l'adresse » pour obtenir lat/lng"
+          - name: lng
+            label: Longitude
+            type: number
