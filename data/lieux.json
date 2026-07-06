@@ -2,11 +2,11 @@
   "lieux": [
     {
       "theme": "food",
-      "nom": "Crêperie du centre",
-      "detail": "galettes au blé noir, vieille ville",
-      "picto": "🥞",
-      "lat": 48.5142,
-      "lng": -2.7651
+      "nom": "Nobi Nobi",
+      "detail": "Fastfood Japonnais",
+      "picto": "🍜",
+      "lat": 48.51176314888564,
+      "lng": -27591601675343790
     },
     {
       "theme": "food",
