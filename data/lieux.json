@@ -74,11 +74,11 @@
     },
     {
       "theme": "shopping",
-      "nom": "Biscuiterie / caramels",
-      "detail": "beurre salé à rapporter",
-      "picto": "🍬",
-      "lat": 48.5144,
-      "lng": -2.7656
+      "nom": "Mysticrue",
+      "detail": "Rue avec boutique sympa",
+      "picto": "🍄",
+      "lat": 48.514428,
+      "lng": -2.761299
     },
     {
       "theme": "shopping",
