@@ -66,11 +66,11 @@
     },
     {
       "theme": "shopping",
-      "nom": "Boutique ésotérique",
-      "detail": "pierres, minéraux & encens",
-      "picto": "🔮",
-      "lat": 48.5137,
-      "lng": -2.7643
+      "nom": "Boutique style ésotérique",
+      "detail": "dans le style, par forcément ésotérique",
+      "picto": "🌞",
+      "lat": 48.512896,
+      "lng": -2.761026
     },
     {
       "theme": "shopping",
