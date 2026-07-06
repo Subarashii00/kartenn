@@ -63,6 +63,7 @@
     animation:derive 6s ease-in-out infinite;
     transition:transform .2s ease;
     -webkit-tap-highlight-color:transparent;
+    z-index:2;
   }
   .flotteur:hover,.flotteur:focus-visible{transform:scale(1.08) rotate(-2deg)}
   .flotteur:focus-visible{outline:3px dashed var(--ocean);outline-offset:8px;border-radius:16px}
@@ -84,8 +85,9 @@
   .flotteur:nth-child(3){animation-duration:6.5s;animation-delay:-4s}
   .flotteur:nth-child(4){animation-duration:8s;animation-delay:-1s}
 
-  .hermine-fond{position:absolute;font-size:22px;opacity:.12;user-select:none;pointer-events:none;
+  .hermine-fond{position:absolute;opacity:.12;user-select:none;pointer-events:none;z-index:0;
     animation:derive 9s ease-in-out infinite}
+  .hermine-fond svg{width:26px;height:auto;display:block}
 
   #home footer{
     flex:none;padding:10px 22px 16px;display:flex;justify-content:space-between;align-items:center;
@@ -194,12 +196,131 @@
   .btn-gps:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 var(--encre)}
   .btn-gps:focus-visible{outline:3px solid var(--ocean);outline-offset:3px}
 
+  /* ===================== DRAPEAU BRETON (Gwenn ha Du) ===================== */
+  /* Posé dans chaque en-tête, bien visible, avec un léger flottement au vent. */
+  .drapeau-wrap{
+    margin-left:auto;flex:none;
+    display:flex;flex-direction:column;align-items:center;gap:3px;
+  }
+  .drapeau{
+    width:80px;height:auto;display:block;
+    border:2px solid var(--encre);border-radius:3px;
+    box-shadow:3px 3px 0 rgba(27,42,58,.28);
+    transform-origin:left center;
+    animation:flotte-drapeau 5s ease-in-out infinite;
+  }
+  @keyframes flotte-drapeau{
+    0%,100%{transform:rotate(-1.2deg) skewY(1deg)}
+    50%    {transform:rotate(1.2deg)  skewY(-1deg)}
+  }
+  .drapeau-legende{
+    font-family:Caveat,cursive;font-size:15px;font-weight:700;color:var(--rouge);
+    line-height:1;letter-spacing:.02em;
+  }
+
+  /* grand drapeau : pièce maîtresse au centre du ciel (PC) */
+  .drapeau-hero{
+    position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+    z-index:1;pointer-events:none;
+    display:flex;flex-direction:column;align-items:center;gap:10px;
+  }
+  .drapeau-hero-svg{
+    width:min(30vw,340px);height:auto;
+    border:3px solid var(--encre);border-radius:5px;
+    box-shadow:7px 9px 0 rgba(27,42,58,.20);
+    animation:flotte-drapeau 6s ease-in-out infinite;
+  }
+  .drapeau-hero-legende{
+    font-family:Caveat,cursive;font-weight:700;color:var(--rouge);
+    font-size:clamp(24px,3vw,34px);transform:rotate(-2deg);
+  }
+
+  /* ===================== MOBILE ===================== */
+  @media (max-width:640px){
+    /* Accueil : on abandonne le positionnement absolu (qui faisait se
+       chevaucher les îlots) au profit d'une grille 2×2 bien aérée. */
+    #home .ciel{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      align-content:start;justify-items:center;
+      gap:24px 8px;
+      padding:12px 12px 20px;
+      overflow-y:auto;
+    }
+    #home .flotteur{
+      position:static!important;
+      left:auto!important;right:auto!important;top:auto!important;bottom:auto!important;
+      animation:none!important;
+      width:100%;
+    }
+    /* hero : le drapeau passe en haut, pleine largeur, façon logo d'accueil */
+    .drapeau-hero{
+      position:static;transform:none;
+      grid-column:1 / -1;
+      margin:2px 0 10px;
+    }
+    .drapeau-hero-svg{width:min(64vw,260px)}
+    /* on masque le petit drapeau de l'en-tête sur l'accueil (le hero le remplace) */
+    #home .drapeau-wrap{display:none}
+    #home .flotteur svg{width:clamp(74px,29vw,120px)}
+    .etiquette{font-size:clamp(19px,5.4vw,24px)}
+
+    header.top{padding:12px 16px 6px;gap:10px}
+    h1{font-size:clamp(22px,6vw,30px)}
+    .sous-titre{font-size:17px}
+    .drapeau{width:58px}
+    .drapeau-legende{font-size:13px}
+  }
+
   @media (prefers-reduced-motion:reduce){
     *{animation:none !important;transition:none !important}
   }
 </style>
 </head>
 <body>
+
+<!-- ============ DÉFINITIONS SVG RÉUTILISABLES ============ -->
+<!-- Le drapeau breton (Gwenn ha Du) et la moucheture d'hermine sont
+     définis une seule fois ici, puis réutilisés partout via <use>. -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <!-- moucheture d'hermine : 3 points + corps à trois pointes -->
+    <g id="moucheture" fill="#15161B">
+      <circle cx="0"    cy="-2.4" r=".65"/>
+      <circle cx="-1.5" cy="-1.5" r=".65"/>
+      <circle cx="1.5"  cy="-1.5" r=".65"/>
+      <path d="M0,-1 C .8,-.4 1.1,.9 2.1,2 C 1.3,1.7 .8,1.9 .6,2.9
+               C .25,2 -.25,2 -.6,2.9 C -.8,1.9 -1.3,1.7 -2.1,2
+               C -1.1,.9 -.8,-.4 0,-1 Z"/>
+    </g>
+    <!-- drapeau breton : 9 bandes (5 noires, 4 blanches) + canton d'hermines -->
+    <symbol id="gwenn-ha-du" viewBox="0 0 108 72">
+      <rect width="108" height="72" fill="#F6F1E4"/>
+      <g fill="#15161B">
+        <rect y="0"  width="108" height="8"/>
+        <rect y="16" width="108" height="8"/>
+        <rect y="32" width="108" height="8"/>
+        <rect y="48" width="108" height="8"/>
+        <rect y="64" width="108" height="8"/>
+      </g>
+      <!-- canton (kanton) : fond blanc + 11 hermines -->
+      <rect width="40" height="32" fill="#F6F1E4"/>
+      <g>
+        <use href="#moucheture" transform="translate(6,8) scale(.9)"/>
+        <use href="#moucheture" transform="translate(16,8) scale(.9)"/>
+        <use href="#moucheture" transform="translate(26,8) scale(.9)"/>
+        <use href="#moucheture" transform="translate(36,8) scale(.9)"/>
+        <use href="#moucheture" transform="translate(11,16) scale(.9)"/>
+        <use href="#moucheture" transform="translate(21,16) scale(.9)"/>
+        <use href="#moucheture" transform="translate(31,16) scale(.9)"/>
+        <use href="#moucheture" transform="translate(6,24) scale(.9)"/>
+        <use href="#moucheture" transform="translate(16,24) scale(.9)"/>
+        <use href="#moucheture" transform="translate(26,24) scale(.9)"/>
+        <use href="#moucheture" transform="translate(36,24) scale(.9)"/>
+      </g>
+    </symbol>
+  </defs>
+</svg>
 
 <!-- ============ ÉCRAN 1 : THÈMES ============ -->
 <section class="screen active" id="home" aria-label="Choix du thème">
@@ -209,8 +330,18 @@
       <h1>Degemer mat&nbsp;!</h1>
       <div class="sous-titre">→ choisis un thème pour explorer Saint-Brieuc</div>
     </div>
+    <div class="drapeau-wrap">
+      <svg class="drapeau" viewBox="0 0 108 72" role="img" aria-label="Gwenn ha Du, le drapeau breton"><use href="#gwenn-ha-du"/></svg>
+      <span class="drapeau-legende">Breizh</span>
+    </div>
   </header>
   <div class="ciel" id="ciel">
+
+    <!-- grand drapeau breton : centre de l'écran sur PC, hero en haut sur mobile -->
+    <div class="drapeau-hero" aria-hidden="true">
+      <svg class="drapeau-hero-svg" viewBox="0 0 108 72"><use href="#gwenn-ha-du"/></svg>
+      <span class="drapeau-hero-legende">Bevet Breizh&nbsp;!</span>
+    </div>
 
     <button class="flotteur" data-theme="food" style="left:8%;top:4%">
       <!-- Coiffe bigoudène : haute tour de dentelle blanche, brides et petit chignon -->
@@ -313,6 +444,10 @@
       <h1 id="liste-titre">…</h1>
       <div class="sous-titre" id="liste-sous">→ touche un lieu pour voir la carte</div>
     </div>
+    <div class="drapeau-wrap">
+      <svg class="drapeau" viewBox="0 0 108 72" role="img" aria-label="Gwenn ha Du, le drapeau breton"><use href="#gwenn-ha-du"/></svg>
+      <span class="drapeau-legende">Breizh</span>
+    </div>
   </header>
   <div class="items" id="liste-items"></div>
 </section>
@@ -325,6 +460,10 @@
     <div>
       <h1 id="carte-titre">…</h1>
       <div class="sous-titre" id="carte-sous"></div>
+    </div>
+    <div class="drapeau-wrap">
+      <svg class="drapeau" viewBox="0 0 108 72" role="img" aria-label="Gwenn ha Du, le drapeau breton"><use href="#gwenn-ha-du"/></svg>
+      <span class="drapeau-legende">Breizh</span>
     </div>
   </header>
   <div class="zone-carte">
@@ -514,7 +653,7 @@ function majLegende(msg){
   pos.forEach(([x,y],i)=>{
     const s = document.createElement("span");
     s.className = "hermine-fond";
-    s.textContent = "ᛉ";
+    s.innerHTML = '<svg viewBox="-3.5 -4 7 8" aria-hidden="true"><use href="#moucheture"/></svg>';
     s.style.left = x+"%"; s.style.top = y+"%";
     s.style.animationDelay = (-i*1.3)+"s";
     ciel.appendChild(s);
