@@ -103,22 +103,6 @@
       "picto": "🎬",
       "lat": 48.4924,
       "lng": -2.76054
-    },
-    {
-      "theme": "activity",
-      "nom": "Bars de la vieille ville",
-      "detail": "rue Fardel & alentours",
-      "picto": "🍺",
-      "lat": 48.5145,
-      "lng": -2.766
-    },
-    {
-      "theme": "activity",
-      "nom": "Patinoire de Brézillet",
-      "detail": "glisse en famille",
-      "picto": "⛸️",
-      "lat": 48.4995,
-      "lng": -2.7525
     }
   ]
 }
