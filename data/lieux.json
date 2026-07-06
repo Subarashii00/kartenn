@@ -10,11 +10,11 @@
     },
     {
       "theme": "food",
-      "nom": "Halles Georges-Brassens",
-      "detail": "marché couvert, produits de la baie",
-      "picto": "🧺",
-      "lat": 48.5148,
-      "lng": -2.7639
+      "nom": "BAZAAR HALL",
+      "detail": "Complexe de resto/bar ",
+      "picto": "🍕",
+      "lat": 48.504974,
+      "lng": -2.743975
     },
     {
       "theme": "food",
