@@ -89,28 +89,20 @@
       "lng": -2.759926
     },
     {
-      "theme": "shopping",
-      "nom": "Disquaire / créateurs",
-      "detail": "vinyles & artisanat local",
-      "picto": "🎵",
-      "lat": 48.5126,
-      "lng": -2.7635
-    },
-    {
       "theme": "activity",
       "nom": "Bowling de Brézillet",
-      "detail": "strike & frites",
+      "detail": "Bowling et billard",
       "picto": "🎳",
-      "lat": 48.4987,
-      "lng": -2.7539
+      "lat": 48.491042,
+      "lng": -2.761163
     },
     {
       "theme": "activity",
       "nom": "Ciné (Trégueux / centre)",
-      "detail": "séance du soir",
+      "detail": "Bonne taille",
       "picto": "🎬",
-      "lat": 48.4906,
-      "lng": -2.7448
+      "lat": 48.4924,
+      "lng": -2.76054
     },
     {
       "theme": "activity",
