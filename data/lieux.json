@@ -50,11 +50,11 @@
     },
     {
       "theme": "place",
-      "nom": "Port du Légué",
-      "detail": "vieux gréements & quais",
-      "picto": "⚓",
-      "lat": 48.529,
-      "lng": -2.74
+      "nom": "Vue sur la vallée",
+      "detail": "Coin passible",
+      "picto": "🪨",
+      "lat": 48.51831,
+      "lng": 2.750737
     },
     {
       "theme": "place",
