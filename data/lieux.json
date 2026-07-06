@@ -26,11 +26,11 @@
     },
     {
       "theme": "food",
-      "nom": "Port du Légué — resto",
-      "detail": "moules, coquilles Saint-Jacques",
-      "picto": "🦪",
-      "lat": 48.5286,
-      "lng": -2.7415
+      "nom": "Columbus Café",
+      "detail": "Café chill",
+      "picto": "☕",
+      "lat": 48.511921,
+      "lng": -2.759647
     },
     {
       "theme": "place",
