@@ -111,6 +111,13 @@
       "picto": "🏖️",
       "lat": 48.56385,
       "lng": -2.75582
+    },
+    {
+      "nom": "Nature & Découverte",
+      "detail": "Youhou !!",
+      "picto": "🌿",
+      "lat": 48.511679,
+      "lng": -2.760331
     }
   ]
 }
